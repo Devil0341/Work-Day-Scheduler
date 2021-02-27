@@ -63,45 +63,30 @@ saveBtnEl.on('click', function (event) {
 });
 
 //Need to reload page with saved info from local storage
-// console.log(saveRefreshData)
-// function saveRefreshData(){
-// var timeStored = localStorage.getItem(time);
-// var textStored = localStorage.getItem(descriptionBox);
-// // if (timeStored === ?????)
-// // $('.description').textContent.textStored
-// // $()
-// }
 
-// -------------
 
 function saveRefreshData() {
-    console.log(descriptionInput)
+    
  var descriptionInput = $('.description');
     descriptionInput.each(function () {
+        // console.log(descriptionInput)
+        
+        
+        var time2 = $(this).siblings('.hour')
         // console.log(time2)
-        var time2 = $(this).parent('.hour')
-        // console.log(timeStored)
+        
         var timeStored = localStorage.getItem('time');
-        // console.log(textStored)
+        // console.log(timeStored)
+        
+        
         var textStored = localStorage.getItem('description');
+        // console.log(textStored)
         if (timeStored === time2) {
-            $(this).textContent.textStored
+            textStored.textContent.$(this)
+        //    DEBUGGGGIN STOPPED HERE
+            console.log(textStored.textContent.$(this))
            
         }
     })
 };
 saveRefreshData()
-
-
-
-// function saveRefreshData() {
-//     var descriptionInput = $('.description');
-//     descriptionInput.each(function () {
-//         var time2 = $(this).parent().parent().data('time')
-//         var timeStored = localStorage.getItem('time');
-//         var textStored = localStorage.getItem('description');
-//         if (timeStored === time2) {
-//             $(this).textContent.textStored
-//         }
-//     })
-// };
