@@ -42,18 +42,30 @@ colorDate();
 
 
 
-//Click save button  and set user input into local storage and show back up after refreshed page
+//Click save button  and set user input into local storage 
 var saveBtnEl = $('.saveBtn');
-//need on(click)--event listener
+
+//Need on(click)--event listener
 saveBtnEl.on('click', function (event) {
+    event.preventDefault()
     //Capture the values from the jquery
-    // console.log(saveBtnEl)
-    // var userInput = $(this)('.description').val();
-    var time = $(this).data('time');
-     console.log(time)
-    
-    
+    // console.log($(this).parent().parent().data('time'))
+
+    //When `this` any save button is clicked,  use dom, parent element is time-block, get the data-time value
+    var time = $(this).parent().parent().data('time')
+
+    // When `this` any save button clicked, look for siblings in dom with class ` .description`and get the value
+    var descriptionBox = $(this).siblings('.description').val();
+
     // set items in storage
-    localStorage.setItem('time', time)
+    localStorage.setItem(time, descriptionBox);
 });
 
+//Need to reload page with saved info from local storage
+function saveRefreshData(){
+var timeStored = localStorage.getItem(time);
+var textStored = localStorage.getItem(descriptionBox);
+if (timeStored === ?????)
+$('.description').textContent.textStored
+$()
+}
