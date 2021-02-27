@@ -52,13 +52,14 @@ saveBtnEl.on('click', function (event) {
     // console.log($(this).parent().parent().data('time'))
 
     //When `this` any save button is clicked,  use dom, parent element is time-block, get the data-time value
-    var time = $(this).parent().parent().data('time')
+    var time1 = $(this).parent().parent().data('time')
 
     // When `this` any save button clicked, look for siblings in dom with class ` .description`and get the value
     var descriptionBox = $(this).siblings('.description').val();
 
     // set items in storage
-    localStorage.setItem(time, descriptionBox);
+    localStorage.setItem('time', time1);
+    localStorage.setItem('description', descriptionBox)
 });
 
 //Need to reload page with saved info from local storage
@@ -72,12 +73,16 @@ saveBtnEl.on('click', function (event) {
 // }
 
 // -------------
-timeBlockRow.each(function(){
-var descriptionBox = $(this).siblings('.description').val();
- var time = $(this).parent().parent().data('time')
- var timeStored = localStorage.getItem(time);
- var textStored = localStorage.getItem(descriptionBox);
-  if (timeStored === time){
-      descriptionBox.textContent.textStored
-  }
-});
+console.log(descriptionInput);
+
+function saveRefreshData() {
+    var descriptionInput = $('.description');
+    descriptionInput.each(function () {
+        var time2 = $(this).parent().parent().data('time')
+        var timeStored = localStorage.getItem('time');
+        var textStored = localStorage.getItem('description');
+        if (timeStored === time2) {
+            $(this).textContent.textStored
+        }
+    })
+};
