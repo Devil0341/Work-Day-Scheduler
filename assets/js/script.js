@@ -73,16 +73,35 @@ saveBtnEl.on('click', function (event) {
 // }
 
 // -------------
-console.log(descriptionInput);
 
 function saveRefreshData() {
-    var descriptionInput = $('.description');
+    console.log(descriptionInput)
+ var descriptionInput = $('.description');
     descriptionInput.each(function () {
-        var time2 = $(this).parent().parent().data('time')
+        // console.log(time2)
+        var time2 = $(this).parent('.hour')
+        // console.log(timeStored)
         var timeStored = localStorage.getItem('time');
+        // console.log(textStored)
         var textStored = localStorage.getItem('description');
         if (timeStored === time2) {
             $(this).textContent.textStored
+           
         }
     })
 };
+saveRefreshData()
+
+
+
+// function saveRefreshData() {
+//     var descriptionInput = $('.description');
+//     descriptionInput.each(function () {
+//         var time2 = $(this).parent().parent().data('time')
+//         var timeStored = localStorage.getItem('time');
+//         var textStored = localStorage.getItem('description');
+//         if (timeStored === time2) {
+//             $(this).textContent.textStored
+//         }
+//     })
+// };
