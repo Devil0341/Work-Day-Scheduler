@@ -1,9 +1,6 @@
 
 var timeBlocks = $('.container');
-var userInputRow = $('.description');
-var timeBlockRow = $('#time-block');
-var rowHour = $('.hour');
-
+var timeBlockRow = $('.time-block');
 var isPresent;
 var isPast;
 var isFuture;
@@ -13,36 +10,50 @@ var isFuture;
 var todayDate = moment().format('dddd, MMMM Do');
 $('#currentDay').text(todayDate);
 
-///jquery function to loop over time blocks
-$(function colorDate() {
+//function to loop over time blocks
+
+function colorDate() {
     //current time now variable
     var currentHour = moment().hour()
 
-    //when looping use `this` to refer to the current html element(time-block)
-    // Military time will be read 0900-1700
-    timeBlockRow.each(function (i) {
-        //turn html element #time-blocks into a number, set attribute id, and split each number into an array
-        var blockHour = parseInt($(this).attr("id").split("time-block")[1]);
+    //jquery .each looping use `$(this)` to refer to the current html element(time-block)
+    timeBlockRow.each(function () {
+
+        //turn html element #time-blocks into a number, using .data(key,value) can omit `data` and just use string time in .data()
+        // console.log($(this).data('time'), currentHour);
+        var blockHour = parseInt($(this).data('time'));
 
         //check time and set appropriate rows to background color
+        // Military time will be read 0900-1700
         if (currentHour === blockHour) {
             $(this).addClass('present')
 
         } else if (currentHour > blockHour) {
             $(this).addClass('past')
-        } else {
+        }
+        else {
             $(this).addClass('future')
         }
     });
+}
+// execute function
+colorDate();
+
+
+
+
+//Click save button  and set user input into local storage and show back up after refreshed page
+var saveBtnEl = $('.saveBtn');
+//need on(click)--event listener
+saveBtnEl.on('click', function (event) {
+    //Capture the values from the jquery
+    // console.log(saveBtnEl)
+    // var userInput = $(this)('.description').val();
+    var time = $(this).data('time');
+     console.log(time)
+    
+    
+    // set items in storage
+    localStorage.setItem('time', time)
 });
 
-
-
-
-//Once save button is clicked the function will save user input into local storage and show back up after refreshed page
-
-$(function saveButton() {
-    //need on(click)
-    //need to set item
-    //need to get item on page refresh
-});
