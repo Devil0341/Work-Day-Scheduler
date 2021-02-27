@@ -62,10 +62,22 @@ saveBtnEl.on('click', function (event) {
 });
 
 //Need to reload page with saved info from local storage
-function saveRefreshData(){
-var timeStored = localStorage.getItem(time);
-var textStored = localStorage.getItem(descriptionBox);
-if (timeStored === ?????)
-$('.description').textContent.textStored
-$()
-}
+// console.log(saveRefreshData)
+// function saveRefreshData(){
+// var timeStored = localStorage.getItem(time);
+// var textStored = localStorage.getItem(descriptionBox);
+// // if (timeStored === ?????)
+// // $('.description').textContent.textStored
+// // $()
+// }
+
+// -------------
+timeBlockRow.each(function(){
+var descriptionBox = $(this).siblings('.description').val();
+ var time = $(this).parent().parent().data('time')
+ var timeStored = localStorage.getItem(time);
+ var textStored = localStorage.getItem(descriptionBox);
+  if (timeStored === time){
+      descriptionBox.textContent.textStored
+  }
+});
