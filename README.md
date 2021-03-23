@@ -1,4 +1,4 @@
-***[Deployed Link](https://devil0341.github.io/Work-Day-Scheduler/)***
+***[Deployed Link](https://gregpetropoulos.github.io/Work-Day-Scheduler/)***
 
 # Work-Day-Scheduler# 05 Third-Party APIs: Work Day Scheduler
 
